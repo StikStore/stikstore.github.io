@@ -310,12 +310,20 @@
             header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 10px;
+                gap: 12px;
+                padding: 14px 0;
             }
 
-            nav { width: 100%; justify-content: center; }
+            nav {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
 
-            .hero { padding: 60px 0 40px; }
+            nav a { font-size: 0.95rem; }
+
+            .hero { padding: 50px 0 35px; }
 
             .cta-buttons { flex-direction: column; align-items: stretch; }
             .cta-buttons a { width: 100%; text-align: center; }
@@ -331,8 +339,29 @@
         }
 
         @media (max-width: 600px) {
-            h1 { font-size: 2.5rem; }
-            .hero { padding: 40px 0; }
+            h1 { font-size: 2.2rem; }
+            .hero {
+                padding: 40px 0 30px;
+            }
+            .hero p { font-size: 1.05rem; }
+
+            .cta-buttons a {
+                padding: 10px 16px;
+                font-size: 0.95rem;
+                border-radius: 32px;
+            }
+
+            header {
+                position: static;
+                padding: 12px 0;
+            }
+
+            nav { justify-content: center; }
+
+            .container { padding: 0 14px; }
+
+            .card { padding: 22px; }
+            .os-card { padding: 20px; }
         }
     </style>
 </head>
