@@ -15,11 +15,11 @@
       "subtitle": "On-device debugger and developer toolbox.",
       "version": "2.3.6",
       "versionDate": "2025-12-17",
-      "versionDescription": "New and improved sideload release!",
+      "versionDescription": "New and improved sideload release! Note: Requires LocalDevVPN, cannot be used inside LiveContainer to enable JIT inside LiveContainer on TXM devices.",
       "downloadURL": "https://github.com/StephenDev0/StikDebug/releases/download/2.3.6/StikDebug-2.3.6.ipa",
       "localizedDescription": "An on-device debugger and developer toolbox for iOS versions 17.4+ powered by idevice.",
       "iconURL": "https://github.com/StephenDev0/StikDebug/blob/main/assets/StikJIT.png?raw=true",
-      "tintColor": "#293B45",
+      "tintColor": "#0088FF",
       "size": 11996559,
       "screenshots": {
         "iphone": [
