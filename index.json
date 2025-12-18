@@ -23,9 +23,9 @@
       "size": 11996559,
       "screenshots": {
         "iphone": [
-          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/4.PNG" },
-          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/5.PNG" },
-          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/6.PNG" }
+          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/assets/source/home.png" },
+          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/assets/source/scripts.png" },
+          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/assets/source/settings.png" }
         ]
       },
       "appPermissions": {
