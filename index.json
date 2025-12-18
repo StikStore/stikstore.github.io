@@ -21,11 +21,13 @@
       "iconURL": "https://github.com/StephenDev0/StikDebug/blob/main/assets/StikJIT.png?raw=true",
       "tintColor": "#293B45",
       "size": 11996559,
-      "screenshotURLs": [
-        "https://raw.githubusercontent.com/StephenDev0/Website-Stuff/refs/heads/main/assets/source/home.png",
-        "https://raw.githubusercontent.com/StephenDev0/Website-Stuff/refs/heads/main/assets/source/scripts.png",
-        "https://raw.githubusercontent.com/StephenDev0/Website-Stuff/refs/heads/main/assets/source/settings.png"
-      ],
+      "screenshots": {
+        "iphone": [
+          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/4.PNG" },
+          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/5.PNG" },
+          { "width": 1290, "height": 2796, "imageURL": "https://stikdebug.xyz/6.PNG" }
+        ]
+      },
       "appPermissions": {
         "entitlements": [],
         "privacy": {}
