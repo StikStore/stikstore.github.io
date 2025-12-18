@@ -22,9 +22,9 @@
       "tintColor": "#293B45",
       "size": 11996559,
       "screenshotURLs": [
-        "https://github.com/StephenDev0/StikDebug/blob/main/assets/views/dark/HomeScreen.PNG?raw=true",
-        "https://github.com/StephenDev0/StikDebug/blob/main/assets/views/dark/AppsList.PNG?raw=true",
-        "https://github.com/StephenDev0/StikDebug/blob/main/assets/views/dark/Settings.PNG?raw=true"
+        "https://raw.githubusercontent.com/StephenDev0/Website-Stuff/refs/heads/main/assets/source/home.png",
+        "https://raw.githubusercontent.com/StephenDev0/Website-Stuff/refs/heads/main/assets/source/scripts.png",
+        "https://raw.githubusercontent.com/StephenDev0/Website-Stuff/refs/heads/main/assets/source/settings.png"
       ],
       "appPermissions": {
         "entitlements": [],
