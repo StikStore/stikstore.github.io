@@ -1,0 +1,46 @@
+{
+  "name": "StikDebug Repository",
+  "identifier": "com.stik.stikdebug",
+  "website": "https://stikdebug.xyz",
+  "subtitle": "Official AltSource for StikDebug.",
+  "description": "An on-device JIT enabler for iOS versions 17.4+ (excluding iOS 18.4 beta 1), powered by idevice.",
+  "tintColor": "#293B45",
+  "iconURL": "https://github.com/StephenDev0/StikDebug/blob/main/assets/StikJIT.png?raw=true",
+  "headerURL": "https://github.com/StephenDev0/StikDebug/blob/main/assets/StikJIT.png?raw=true",
+  "apps": [
+    {
+      "name": "StikDebug",
+      "bundleIdentifier": "com.stik.stikdebug",
+      "developerName": "Stephen",
+      "subtitle": "An on-device JIT enabler for iOS versions 17.4+ (excluding iOS 18.4 beta 1), powered by idevice.",
+      "version": "2.3.6",
+      "versionDate": "2025-12-17",
+      "versionDescription": "New and improved sideload release!",
+      "downloadURL": "https://github.com/StephenDev0/StikDebug/releases/download/2.3.6/StikDebug-2.3.6.ipa",
+      "localizedDescription": "Enable JIT capabilities for your sideloaded apps.",
+      "iconURL": "https://github.com/StephenDev0/StikDebug/blob/main/assets/StikJIT.png?raw=true",
+      "tintColor": "#293B45",
+      "size": 11996559,
+      "screenshotURLs": [
+        "https://github.com/StephenDev0/StikDebug/blob/main/assets/views/dark/HomeScreen.PNG?raw=true",
+        "https://github.com/StephenDev0/StikDebug/blob/main/assets/views/dark/AppsList.PNG?raw=true",
+        "https://github.com/StephenDev0/StikDebug/blob/main/assets/views/dark/Settings.PNG?raw=true"
+      ],
+      "appPermissions": {
+        "entitlements": [],
+        "privacy": {}
+      },
+      "versions": [
+        {
+          "version": "2.3.6",
+          "date": "2025-12-17",
+          "localizedDescription": "New and improved sideload release!",
+          "downloadURL": "https://github.com/StephenDev0/StikDebug/releases/download/2.3.6/StikDebug-2.3.6.ipa",
+          "size": 11996559,
+          "minOSVersion": "17.4"
+        }
+      ]
+    }
+  ],
+  "news": []
+}
