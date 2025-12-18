@@ -75,10 +75,18 @@
 
         .logo span { color: var(--primary-color); }
 
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
         nav a {
             color: var(--secondary-text);
             text-decoration: none;
-            margin-left: 20px;
+            margin-left: 0;
             font-size: 0.9rem;
             transition: color 0.3s;
         }
@@ -87,7 +95,7 @@
 
         .hero {
             text-align: center;
-            padding: 80px 0 60px;
+            padding: 70px 0 50px;
         }
 
         .app-icon {
@@ -101,22 +109,31 @@
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.6rem;
             margin: 0 0 15px;
             line-height: 1.1;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: var(--secondary-text);
             max-width: 600px;
             margin: 0 auto 40px;
         }
 
-        .app-store-btn {
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .app-store-btn,
+        .altstore-btn,
+        .sidestore-btn {
             display: inline-block;
-            background-color: var(--primary-color);
             color: white;
             text-decoration: none;
             padding: 12px 24px;
@@ -125,9 +142,22 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
+        .app-store-btn { background-color: var(--primary-color); }
         .app-store-btn:hover {
             transform: scale(1.05);
             background-color: #0062cc;
+        }
+
+        .altstore-btn { background-color: #1abc9c; }
+        .altstore-btn:hover {
+            transform: scale(1.05);
+            background-color: #159c81;
+        }
+
+        .sidestore-btn { background-color: #9b59b6; }
+        .sidestore-btn:hover {
+            transform: scale(1.05);
+            background-color: #8748a0;
         }
 
         .github-link {
@@ -275,6 +305,31 @@
             font-size: 0.9rem;
         }
 
+        /* Responsive tweaks */
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            nav { width: 100%; justify-content: center; }
+
+            .hero { padding: 60px 0 40px; }
+
+            .cta-buttons { flex-direction: column; align-items: stretch; }
+            .cta-buttons a { width: 100%; text-align: center; }
+
+            .grid { grid-template-columns: 1fr; }
+            .os-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (min-width: 1200px) {
+            .hero { padding: 80px 0 60px; }
+            h1 { font-size: 2.8rem; }
+            .hero p { font-size: 1.2rem; }
+        }
+
         @media (max-width: 600px) {
             h1 { font-size: 2.5rem; }
             .hero { padding: 40px 0; }
@@ -300,9 +355,17 @@
             <h1>Unlock the power of <br>on-device debugging.</h1>
             <p>Enable JIT for sideloaded apps, debug processes, and manage your iOS development workflow directly from your device.</p>
             
-            <a href="https://github.com/StephenDev0/StikDebug/releases" class="app-store-btn">
-                Download the IPA on GitHub
-            </a>
+            <div class="cta-buttons">
+                <a href="https://github.com/StephenDev0/StikDebug/releases" class="app-store-btn">
+                    Download the IPA on GitHub
+                </a>
+                <a href="altstore://source?url=https://stikdebug.xyz/index.json" class="altstore-btn">
+                    Add the Repo to AltStore
+                </a>
+                <a href="sidestore://source?url=https://stikdebug.xyz/index.json" class="sidestore-btn">
+                    Add the Repo to SideStore
+                </a>
+            </div>
             
             <a href="https://github.com/StephenDev0/StikDebug" class="github-link">View Source on GitHub</a>
         </section>
