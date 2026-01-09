@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>StikStore - The Next Generation iOS App Sideloader</title>
+    <meta name="title" content="StikStore - The Next Generation iOS App Sideloader">
+    <meta name="description" content="The ultimate iOS app for sideloading, JIT enabling, and wireless app management.">
+    <meta name="keywords" content="StikStore, iOS sideloader, JIT enabler, AltStore repo, ipa installer, Apple ID manager">
+    <meta name="author" content="Stephen Bove">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://stephendev0.github.io/StikStore/">
+    <meta property="og:title" content="StikStore - The Next Generation iOS App Sideloader">
+    <meta property="og:description" content="Easy iOS sideloading, community source support, and built-in JIT enabler.">
+    <meta property="og:image" content="StikStore.png">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://stephendev0.github.io/StikStore/">
+    <meta property="twitter:title" content="StikStore - The Next Generation iOS App Sideloader">
+    <meta property="twitter:description" content="Easy iOS sideloading, community source support, and built-in JIT enabler.">
+    <meta property="twitter:image" content="StikStore.png">
+
+    <link rel="icon" type="image/png" href="StikStore.png">
+    
+    <style>
+        :root {
+            --primary-color: #2997ff; /* iOS bright blue */
+            --bg-color: #000000;
+            --text-color: #f5f5f7;
+            --secondary-text: #86868b;
+            
+            /* Glass Variables */
+            --glass-bg: rgba(30, 30, 35, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --glass-highlight: rgba(255, 255, 255, 0.08);
+            --glass-blur: blur(25px);
+            
+            --warning-bg: rgba(60, 40, 0, 0.6);
+            --warning-border: #ffd60a;
+            --warning-text: #fff;
+            
+            --beta-badge-bg: rgba(255, 149, 0, 0.25);
+            --beta-badge-color: #ff9f0a;
+            
+            --discord-color: #5865F2;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        header {
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 20px;
+            z-index: 1000;
+            margin: 20px auto 0;
+            max-width: 960px;
+            border-radius: 100px;
+            background: rgba(20, 20, 20, 0.7);
+            backdrop-filter: var(--glass-blur) saturate(180%);
+            -webkit-backdrop-filter: var(--glass-blur) saturate(180%);
+            border: 1px solid var(--glass-border);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: #fff;
+        }
+
+        .logo span { 
+            color: var(--primary-color);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 100px 0 80px;
+        }
+
+        .app-icon {
+            width: 128px;
+            height: 128px;
+            border-radius: 34px;
+            margin: 0 auto 40px;
+            display: block;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .app-icon:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin: 0 0 20px;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--secondary-text);
+            max-width: 650px;
+            margin: 0 auto 50px;
+            font-weight: 400;
+        }
+
+        .cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .app-store-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            background-color: var(--primary-color);
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .github-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: var(--secondary-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .github-link:hover {
+            color: #fff;
+        }
+
+        section { scroll-margin-top: 120px; }
+        .features-section { padding: 40px 0 80px; }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #fff;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: var(--glass-blur) saturate(180%);
+            -webkit-backdrop-filter: var(--glass-blur) saturate(180%);
+            padding: 32px;
+            border-radius: 32px;
+            border: 1px solid var(--glass-border);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            background: rgba(45, 45, 50, 0.7);
+        }
+
+        .card h3 { 
+            margin-top: 0; 
+            font-size: 1.4rem; 
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .card p { 
+            color: rgba(255, 255, 255, 0.7); 
+            margin-bottom: 0; 
+            font-size: 1rem; 
+            line-height: 1.5;
+        }
+
+        .support-section {
+            padding: 60px 0 80px;
+            position: relative;
+        }
+        
+        .support-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 50%; transform: translateX(-50%);
+            width: 80%; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        .discord-btn {
+            display: inline-block;
+            background-color: var(--discord-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-top: 20px;
+            transition: opacity 0.2s;
+        }
+
+        .discord-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0 60px;
+            color: var(--secondary-text);
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 900px) {
+            header {
+                flex-direction: column;
+                gap: 16px;
+                border-radius: 24px;
+                margin: 10px;
+                top: 10px;
+            }
+            nav { justify-content: center; gap: 20px; flex-wrap: wrap; }
+            h1 { font-size: 2.8rem; }
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.4rem; }
+            .hero { padding: 60px 0 40px; }
+            .cta-buttons a { width: 100%; text-align: center; }
+            .container { padding: 0 16px; }
+            .card { padding: 24px; }
+            header { padding: 16px; }
+        }
+    </style>
+    <style>
+        /* ... previous styles ... */
+
+        /* Popup Styles */
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .popup-content {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 30px;
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
+
+        .popup-overlay.active .popup-content {
+            transform: scale(1);
+        }
+
+        .popup-content h2 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle-timer {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 500;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .close-btn {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: #fff;
+            padding: 10px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.2s;
+            margin-top: 10px;
+        }
+
+        .close-btn:hover {
+            background: rgba(255,255,255,0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Popup Modal -->
+    <div class="popup-overlay" id="popup">
+        <div class="popup-content">
+            <h2>Coming Soon</h2>
+            <div class="subtitle-timer">Releasing in <span id="timer">00:00:00:00</span></div>
+            <p style="color: var(--secondary-text); font-size: 0.9rem;">Mark your calendars for Jan 31st at 1:00 PM EST!</p>
+            <button class="close-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openPopup(e) {
+            e.preventDefault();
+            document.getElementById('popup').classList.add('active');
+            updateTimer(); // Update immediately on open
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('active');
+        }
+
+        // Close on clicking outside
+        document.getElementById('popup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Countdown Logic
+        const targetDate = new Date("January 31, 2026 13:00:00 EST").getTime();
+
+        function updateTimer() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = "RELEASED";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("timer").innerHTML = 
+                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        setInterval(updateTimer, 1000);
+    </script>
+
+    <div class="container">
+        <header>
+            <div class="logo">Stik<span>Store</span></div>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#support">Support</a>
+            </nav>
+        </header>
+
+                                                <style>
+
+                        
+
+                                                    .screenshot-scroll {
+
+                        
+
+                                                        display: flex;
+
+                        
+
+                                                        overflow-x: auto;
+
+                        
+
+                                                        gap: 20px;
+
+                        
+
+                                                        padding: 40px 0;
+
+                        
+
+                                                        margin-bottom: 40px;
+
+                        
+
+                                                        justify-content: center;
+
+                        
+
+                                                        -ms-overflow-style: none;  /* IE and Edge */
+
+                        
+
+                                                        scrollbar-width: none;  /* Firefox */
+
+                        
+
+                                                        scroll-snap-type: x mandatory;
+
+                        
+
+                                                    }
+
+                        
+
+                                                    
+
+                        
+
+                                                    .screenshot-scroll::-webkit-scrollbar {
+
+                        
+
+                                                        display: none;
+
+                        
+
+                                                    }
+
+                        
+
+                                        
+
+                        
+
+                                                    .screenshot-item {
+
+                        
+
+                                                        flex: 0 0 auto;
+
+                        
+
+                                                        width: 260px;
+
+                        
+
+                                                        border-radius: 20px;
+
+                        
+
+                                                        overflow: hidden;
+
+                        
+
+                                                        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+                        
+
+                                                        border: 1px solid rgba(255,255,255,0.1);
+
+                        
+
+                                                        scroll-snap-align: center;
+
+                        
+
+                                                        transition: transform 0.3s;
+
+                        
+
+                                                    }
+
+                        
+
+                                                    
+
+                        
+
+                                                    .screenshot-item:hover {
+
+                        
+
+                                                        transform: translateY(-5px);
+
+                        
+
+                                                    }
+
+                        
+
+                                        
+
+                        
+
+                                                    .screenshot-item img {
+
+                        
+
+                                                        width: 100%;
+
+                        
+
+                                                        height: auto;
+
+                        
+
+                                                        display: block;
+
+                        
+
+                                                    }
+
+                        
+
+                                                    @media (max-width: 860px) {
+
+                                                        .screenshot-scroll {
+
+                                                            justify-content: flex-start;
+
+                                                            padding-left: 20px;
+
+                                                        }
+
+                                                    }
+
+                        
+
+                                                </style>
+
+                        
+
+                                        
+
+                        
+
+                                                                                                <section class="hero">
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                                                    <img src="StikStore.png" alt="StikStore Icon" class="app-icon">
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                                                    <h1>Sideloading, <br>simplified.</h1>
+
+                        
+
+                                                    <p>The next generation iOS App Sideloader. Featuring Apple ID signing, certificate signing, and a built-in JIT enabler.</p>
+
+                        
+
+                                                                                                                                                            <div class="cta-buttons">
+
+                        
+
+                                                                                                                                                                <a href="#" class="app-store-btn" onclick="openPopup(event)">
+
+                        
+
+                                                                                                                                                                    Download IPA
+
+                        
+
+                                                                                                                                                                </a>
+
+                        
+
+                                                                                                                                                            </div>
+
+                        
+
+                                                    
+
+                        
+
+                                                    <a href="#" class="github-link" onclick="openPopup(event)">View on GitHub</a>
+
+                        
+
+                                                    
+
+                        
+
+                                                                                                    </section>
+
+                        
+
+                                        
+
+                        
+
+                                                                        <section class="screenshot-section">
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                            <div class="screenshot-scroll">
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                                <div class="screenshot-item"><img src="S1.PNG" alt="Screenshot 1"></div>
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                                <div class="screenshot-item"><img src="S2.PNG" alt="Screenshot 2"></div>
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                                <div class="screenshot-item"><img src="S3.PNG" alt="Screenshot 3"></div>
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                            </div>
+
+                        
+
+                                        
+
+                        
+
+                                                
+
+                        
+
+                                        
+
+                        
+
+                                                                        </section>
+
+                        
+
+                                        
+
+                        
+
+                                                <section id="features" class="features-section">
+
+                        
+
+                                                    <h2 class="section-title">Features</h2>
+
+                        
+
+                                                    <div class="grid">
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>Apple ID Signing</h3>
+
+                        
+
+                                                            <p>Sign apps using your personal or developer Apple ID directly on your device.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>Certificate Signing</h3>
+
+                        
+
+                                                            <p>Import and use .p12 and .mobileprovision files for enterprise-grade signing.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>JIT Enabler</h3>
+
+                        
+
+                                                            <p>Enable Just-In-Time compilation for emulators and VMs without needing a computer.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>Community Sources</h3>
+
+                        
+
+                                                            <p>Full support for AltStore repositories. Add and manage external sources with ease.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>App Browser</h3>
+
+                        
+
+                                                            <p>Discover and explore thousands of apps from your favorite community sources.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>Metadata Reader</h3>
+
+                        
+
+                                                            <p>Inspect bundle IDs, version history, and detailed app info before installing.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>Theming Engine</h3>
+
+                        
+
+                                                            <p>Personalize your experience with OLED Dark, Light, Indigo, and Forest themes.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                        <div class="card">
+
+                        
+
+                                                            <h3>News Feed</h3>
+
+                        
+
+                                                            <p>Stay updated with news and release notes directly from app developers.</p>
+
+                        
+
+                                                        </div>
+
+                        
+
+                                                    </div>
+
+                        
+
+                                                </section>
+
+        
+
+                
+
+        
+
+                        <section id="support" class="support-section">
+
+        
+
+                            <div class="container">
+
+        
+
+                                <div class="grid">
+
+        
+
+                                    <div class="card">
+
+        
+
+                                        <h3>Community</h3>
+
+        
+
+                                        <p>Need help or have suggestions? Join our community server to stay updated.</p>
+
+        
+
+                                        <a href="https://discord.gg/mACqxMxP3X" class="discord-btn" target="_blank">Join Discord Server</a>
+
+        
+
+                                    </div>
+
+        
+
+                                </div>
+
+        
+
+                            </div>
+
+        
+
+                        </section>
+
+        <footer>
+            <p>&copy; 2025 Stephen Bove. All rights reserved.</p>
+            <p>StikStore is a tool for developers and enthusiasts. Not affiliated with Apple Inc.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
