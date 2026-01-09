@@ -28,7 +28,6 @@
     <style>
         :root {
             --primary-color: #2997ff; /* iOS bright blue */
-            --accent-glow: rgba(41, 151, 255, 0.6);
             --bg-color: #000000;
             --text-color: #f5f5f7;
             --secondary-text: #86868b;
@@ -38,7 +37,6 @@
             --glass-border: rgba(255, 255, 255, 0.12);
             --glass-highlight: rgba(255, 255, 255, 0.08);
             --glass-blur: blur(25px);
-            --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
             
             --warning-bg: rgba(60, 40, 0, 0.6);
             --warning-border: #ffd60a;
@@ -84,7 +82,6 @@
             backdrop-filter: var(--glass-blur) saturate(180%);
             -webkit-backdrop-filter: var(--glass-blur) saturate(180%);
             border: 1px solid var(--glass-border);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
         }
 
         .logo {
@@ -96,7 +93,6 @@
 
         .logo span { 
             color: var(--primary-color);
-            text-shadow: 0 0 15px var(--accent-glow);
         }
 
         nav {
@@ -110,12 +106,11 @@
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: color 0.3s, text-shadow 0.3s;
+            transition: color 0.2s;
         }
 
-        nav a:hover { 
-            color: #fff; 
-            text-shadow: 0 0 8px rgba(255,255,255,0.4);
+        nav a:hover {
+            color: #fff;
         }
 
         /* Hero Section */
@@ -130,14 +125,13 @@
             border-radius: 34px; /* iOS Squircle approximation */
             margin: 0 auto 40px;
             display: block;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
             object-fit: cover;
             border: 1px solid rgba(255,255,255,0.1);
-            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            transition: transform 0.3s ease;
         }
 
         .app-icon:hover {
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.02);
         }
 
         h1 {
@@ -146,9 +140,7 @@
             line-height: 1.05;
             font-weight: 800;
             letter-spacing: -1.5px;
-            background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #fff;
         }
 
         .hero p {
@@ -168,9 +160,7 @@
             gap: 16px;
         }
 
-        .app-store-btn,
-        .altstore-btn,
-        .sidestore-btn {
+        .app-store-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -180,31 +170,14 @@
             border-radius: 100px;
             font-weight: 600;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.05);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background-color: var(--primary-color);
+            transition: transform 0.2s, opacity 0.2s;
         }
 
-        .app-store-btn { 
-            background: linear-gradient(135deg, rgba(0, 122, 255, 0.8), rgba(0, 98, 204, 0.8)); 
-            box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
-        }
-        
-        .altstore-btn { 
-            background: linear-gradient(135deg, rgba(26, 188, 156, 0.8), rgba(22, 160, 133, 0.8)); 
-        }
-        
-        .sidestore-btn { 
-            background: linear-gradient(135deg, rgba(155, 89, 182, 0.8), rgba(142, 68, 173, 0.8)); 
-        }
-
-        .app-store-btn:hover,
-        .altstore-btn:hover,
-        .sidestore-btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.2);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        .app-store-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
         .github-link {
@@ -214,12 +187,10 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: color 0.2s;
-            border-bottom: 1px solid transparent;
         }
-        
+
         .github-link:hover {
             color: #fff;
-            border-bottom-color: #fff;
         }
 
         section { scroll-margin-top: 120px; }
@@ -239,28 +210,16 @@
             padding: 32px;
             border-radius: 32px; /* Very rounded */
             border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
             position: relative;
             overflow: hidden;
-        }
-        
-        /* Subtle highlight gradient on top */
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: transform 0.3s, background 0.3s;
         }
 
-        .card:hover { 
-            transform: translateY(-8px) scale(1.02); 
-            background: rgba(40, 40, 45, 0.75);
-            box-shadow: 0 14px 40px rgba(0,0,0,0.6);
-            border-color: rgba(255,255,255,0.2);
+        .card:hover {
+            transform: translateY(-4px);
+            background: rgba(45, 45, 50, 0.7);
         }
-        
+
         .card h3 { 
             margin-top: 0; 
             font-size: 1.4rem; 
@@ -287,7 +246,6 @@
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 0 10px rgba(255, 159, 10, 0.2);
         }
 
         .guide {
@@ -350,18 +308,17 @@
             padding: 28px;
             border-radius: 28px;
             border: 1px solid var(--glass-border);
-            transition: transform 0.2s;
+            transition: transform 0.2s, background 0.2s;
         }
-        
+
         .os-card:hover {
-            transform: translateY(-3px);
-            background: rgba(40, 40, 45, 0.6);
+            transform: translateY(-2px);
+            background: rgba(45, 45, 50, 0.7);
         }
 
         .os-card h4 { margin-top: 0; color: #fff; font-size: 1.3rem; margin-bottom: 15px; }
         .os-card ul { padding-left: 20px; margin-bottom: 0; color: rgba(255,255,255,0.7); }
         .os-card a { color: var(--primary-color); font-weight: 500; text-decoration: none; }
-        .os-card a:hover { text-decoration: underline; }
 
         .step-list {
             counter-reset: step;
@@ -384,14 +341,13 @@
             position: absolute;
             left: 0; top: -2px;
             width: 36px; height: 36px;
-            background: linear-gradient(135deg, var(--primary-color), #005ecb);
+            background: var(--primary-color);
             color: white;
             border-radius: 50%;
             text-align: center;
             line-height: 36px;
             font-weight: 700;
             font-size: 0.9rem;
-            box-shadow: 0 4px 10px rgba(0, 122, 255, 0.4);
         }
 
         .support-section {
@@ -417,14 +373,11 @@
             font-weight: 600;
             font-size: 0.95rem;
             margin-top: 20px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            transition: opacity 0.2s;
         }
 
         .discord-btn:hover {
-            background-color: #4752c4;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(88, 101, 242, 0.5);
+            opacity: 0.9;
         }
 
         footer {
@@ -493,12 +446,6 @@
             <div class="cta-buttons">
                 <a href="https://github.com/StephenDev0/StikDebug/releases" class="app-store-btn">
                     Download the IPA on GitHub
-                </a>
-                <a href="altstore://source?url=https://stikdebug.xyz/index.json" class="altstore-btn">
-                    Add the Repo to AltStore
-                </a>
-                <a href="sidestore://source?url=https://stikdebug.xyz/index.json" class="sidestore-btn">
-                    Add the Repo to SideStore
                 </a>
             </div>
             
