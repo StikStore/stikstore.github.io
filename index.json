@@ -13,7 +13,7 @@
       "bundleIdentifier": "com.stik.stikdebug",
       "developerName": "Stephen Bove",
       "subtitle": "On-device debugger and developer toolbox.",
-      "version": "2.3.6",
+      "version": "2.3.7",
       "versionDate": "2025-12-17",
       "versionDescription": "New and improved sideload release! Note: Requires LocalDevVPN, cannot be used inside LiveContainer to enable JIT inside LiveContainer on TXM devices.",
       "downloadURL": "https://github.com/StephenDev0/StikDebug/releases/download/2.3.7/StikDebug-2.3.7.ipa",
@@ -40,7 +40,7 @@
           "downloadURL": "https://github.com/StephenDev0/StikDebug/releases/download/2.3.7/StikDebug-2.3.7.ipa",
           "size": 12048589,
           "minOSVersion": "17.4"
-        }
+        },
         {
           "version": "2.3.6",
           "date": "2025-12-17",
