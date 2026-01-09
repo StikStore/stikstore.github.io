@@ -377,7 +377,7 @@
         <div class="popup-content">
             <h2>Coming Soon</h2>
             <div class="subtitle-timer">Releasing in <span id="timer">00:00:00:00</span></div>
-            <p style="color: var(--secondary-text); font-size: 0.9rem;">Mark your calendars for Jan 31st at 1:00 PM EST!</p>
+            <p style="color: var(--secondary-text); font-size: 0.9rem;">Mark your calendars for Jan 31st at 12:00 PM EST!</p>
             <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
     </div>
@@ -401,7 +401,7 @@
         });
 
         // Countdown Logic
-        const targetDate = new Date("January 31, 2026 13:00:00 EST").getTime();
+        const targetDate = new Date("January 31, 2026 12:00:00 EST").getTime();
 
         function updateTimer() {
             const now = new Date().getTime();
