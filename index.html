@@ -66,6 +66,7 @@
             --beta-badge-color: #ff9f0a;
             
             --discord-color: #5865F2;
+            --patreon-color: #FF424D;
         }
 
         body {
@@ -303,6 +304,47 @@
             opacity: 0.9;
         }
 
+        .patreon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background-color: var(--patreon-color);
+            transition: transform 0.2s, opacity 0.2s;
+            margin-bottom: 20px;
+        }
+
+        .patreon-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--beta-badge-bg);
+            color: var(--beta-badge-color);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-timer {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
         footer {
             text-align: center;
             padding: 40px 0 60px;
@@ -402,7 +444,7 @@
         <div class="popup-content">
             <h2>Coming Soon</h2>
             <div class="subtitle-timer">Releasing in <span id="timer">00:00:00:00</span></div>
-            <p style="color: var(--secondary-text); font-size: 0.9rem;">Mark your calendars for Jan 31st at 12:00 PM EST!</p>
+            <p style="color: var(--secondary-text); font-size: 0.9rem;">Mark your calendars for February 28th at 12:00 PM EST!</p>
             <p style="color: var(--secondary-text); font-size: 0.8rem; font-style: italic; margin-top: 5px;">Note: The app may be subject to delays and/or feature changes at any time.</p>
             <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
@@ -427,14 +469,17 @@
         });
 
         // Countdown Logic
-        const targetDate = new Date("January 31, 2026 12:00:00 EST").getTime();
+        const targetDate = new Date("February 28, 2026 12:00:00 EST").getTime();
 
         function updateTimer() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
             if (distance < 0) {
-                document.getElementById("timer").innerHTML = "RELEASED";
+                const releaseText = "RELEASED";
+                document.getElementById("timer").innerHTML = releaseText;
+                const heroTimer = document.getElementById("hero-timer");
+                if (heroTimer) heroTimer.innerHTML = releaseText;
                 return;
             }
 
@@ -443,8 +488,10 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("timer").innerHTML = 
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            const timerString = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById("timer").innerHTML = timerString;
+            const heroTimer = document.getElementById("hero-timer");
+            if (heroTimer) heroTimer.innerHTML = timerString;
         }
 
         setInterval(updateTimer, 1000);
@@ -675,8 +722,17 @@
                         
 
                                                     <p>The next generation iOS app sideloader. Featuring Apple ID signing, certificate signing, and a built-in JIT enabler.</p>
-                                                    <p class="github-link">Coming February 31st 2025 (probably).</p>
-                                                    <a class="github-link" href="https://stikstore.app/FlappyStik">While you wait, check out Flappy Stik.</a>
+                                                    
+                                                    <div class="coming-soon-badge">Coming February 28, 2026</div>
+                                                    <div id="hero-timer" class="hero-timer">00:00:00:00</div>
+                                                    
+                                                    <div style="display: none;">
+                                                        <a href="https://patreon.com/stephendev0" class="patreon-btn" target="_blank">Get Beta Access on Patreon</a>
+                                                    </div>
+
+                                                    <div>
+                                                        <a class="github-link" href="https://stikstore.app/FlappyStik">While you wait, check out Flappy Stik.</a>
+                                                    </div>
 
                         
 
