@@ -443,8 +443,8 @@
     <div class="popup-overlay" id="popup">
         <div class="popup-content">
             <h2>Coming Soon</h2>
-            <div class="subtitle-timer">Releasing in <span id="timer">00:00:00:00</span></div>
-            <p style="color: var(--secondary-text); font-size: 0.9rem;">Mark your calendars for February 28th at 12:00 PM EST!</p>
+            <div class="subtitle-timer">Releasing in <span id="timer">TBD</span></div>
+            <p style="color: var(--secondary-text); font-size: 0.9rem;">Release date TBD.</p>
             <p style="color: var(--secondary-text); font-size: 0.8rem; font-style: italic; margin-top: 5px;">Note: The app may be subject to delays and/or feature changes at any time.</p>
             <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
@@ -469,9 +469,17 @@
         });
 
         // Countdown Logic
-        const targetDate = new Date("February 28, 2026 12:00:00 EST").getTime();
+        const targetDate = null;
 
         function updateTimer() {
+            if (!targetDate) {
+                const releaseText = "TBD";
+                document.getElementById("timer").innerHTML = releaseText;
+                const heroTimer = document.getElementById("hero-timer");
+                if (heroTimer) heroTimer.innerHTML = releaseText;
+                return;
+            }
+
             const now = new Date().getTime();
             const distance = targetDate - now;
 
@@ -723,8 +731,8 @@
 
                                                     <p>The next generation iOS app sideloader. Featuring Apple ID signing, certificate signing, and a built-in JIT enabler.</p>
                                                     
-                                                    <div class="coming-soon-badge">Coming February 28, 2026</div>
-                                                    <div id="hero-timer" class="hero-timer">00:00:00:00</div>
+                                                    <div class="coming-soon-badge">Coming TBD</div>
+                                                    <div id="hero-timer" class="hero-timer">TBD</div>
                                                     
                                                     <div style="display: none;">
                                                         <a href="https://patreon.com/stephendev0" class="patreon-btn" target="_blank">Get Beta Access on Patreon</a>
