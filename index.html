@@ -442,9 +442,9 @@
     <!-- Popup Modal -->
     <div class="popup-overlay" id="popup">
         <div class="popup-content">
-            <h2>Coming Soon</h2>
-            <div class="subtitle-timer">Releasing in <span id="timer">TBD</span></div>
-            <p style="color: var(--secondary-text); font-size: 0.9rem;">Release date to be determined.</p>
+            <h2>Announcement Coming Soon</h2>
+            <div class="subtitle-timer">Announcement in <span id="timer">TBD</span></div>
+            <p style="color: var(--secondary-text); font-size: 0.9rem;">Announcement scheduled for January 31, 2026 at 12:00 PM EST.</p>
             <p style="color: var(--secondary-text); font-size: 0.8rem; font-style: italic; margin-top: 5px;">Note: The app may be subject to delays and/or feature changes at any time.</p>
             <button class="close-btn" onclick="closePopup()">Close</button>
         </div>
@@ -469,7 +469,7 @@
         });
 
         // Countdown Logic
-        const targetDate = null;
+        const targetDate = new Date("2026-01-31T12:00:00-05:00").getTime();
 
         function updateTimer() {
             if (!targetDate) {
@@ -731,8 +731,8 @@
 
                                                     <p>The next generation iOS app sideloader. Featuring Apple ID signing, certificate signing, and a built-in JIT enabler.</p>
                                                     
-                                                    <div class="coming-soon-badge">Coming TBD</div>
-                                                    <div id="hero-timer" class="hero-timer">TBD</div>
+                                                    <div class="coming-soon-badge">Announcement Coming Soon</div>
+                                                    <div id="hero-timer" class="hero-timer">Jan 31, 2026 12:00 PM EST</div>
                                                     
                                                     <div style="display: none;">
                                                         <a href="https://patreon.com/stephendev0" class="patreon-btn" target="_blank">Get Beta Access on Patreon</a>
