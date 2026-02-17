@@ -1,9 +1,5 @@
 [
   {
-    "name": "My name is Jeff",
-    "tier": "Super Duper Supporter"
-  },
-  {
     "name": "Annika",
     "tier": "Super Duper Supporter"
   },
@@ -13,6 +9,10 @@
   },
   {
     "name": "Conner McRobert",
+    "tier": "Super Duper Supporter"
+  },
+  {
+    "name": "Maxpro166",
     "tier": "Super Duper Supporter"
   },
   {
