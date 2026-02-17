@@ -1,4 +1,4 @@
 {
-  "enabled": false,
-  "message": "StikFlux is not running normally."
+  "enabled": true,
+  "message": "StikFlux is running normally."
 }
