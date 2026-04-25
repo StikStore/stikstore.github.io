@@ -9,6 +9,7 @@
     "https://alt.crystall1ne.dev",
     "https://raw.githubusercontent.com/chachillie/Flycast-iOS/main/flycast-ios.json",
     "https://github.com/LiveContainer/LiveContainer/releases/download/1.0/apps.json",
-    "https://github.com/LiveContainer/LiveContainer/releases/download/nightly/apps_nightly.json"
+    "https://github.com/LiveContainer/LiveContainer/releases/download/nightly/apps_nightly.json",
+    "https://github.com/minh-ton/reynard-browser/releases/download/0.0.1-a1/source.json"
   ]
 }
