@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "sources": [
+    "https://stikdebug.xyz/index.json",
+    "https://apps.manicemu.site/altstore",
+    "https://altstore.oatmealdome.me/",
+    "https://ish.app/altstore.json",
+    "https://alt.getutm.app",
+    "https://alt.crystall1ne.dev",
+    "https://raw.githubusercontent.com/chachillie/Flycast-iOS/main/flycast-ios.json",
+    "https://github.com/LiveContainer/LiveContainer/releases/download/1.0/apps.json",
+    "https://github.com/LiveContainer/LiveContainer/releases/download/nightly/apps_nightly.json"
+  ]
+}
