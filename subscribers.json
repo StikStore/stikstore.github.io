@@ -28,6 +28,10 @@
     "tier": "Supporter Pro"
   },
   {
+    "name": "Leo Lam",
+    "tier": "Supporter Pro"
+  },
+  {
     "name": "Carter Spenner",
     "tier": "Supporter Pro"
   },
@@ -328,10 +332,6 @@
     "tier": "Supporter"
   },
   {
-    "name": "Spyder Sammy",
-    "tier": "Supporter"
-  },
-  {
     "name": "\u308a\u3053 \u7d62\u9999",
     "tier": "Supporter"
   },
@@ -417,10 +417,6 @@
   },
   {
     "name": "Cocome",
-    "tier": "Supporter"
-  },
-  {
-    "name": "AloneAgainstWorld",
     "tier": "Supporter"
   }
 ]
