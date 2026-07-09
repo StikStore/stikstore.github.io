@@ -36,10 +36,6 @@
     "tier": "Supporter Pro"
   },
   {
-    "name": "unfeathered",
-    "tier": "Supporter Pro"
-  },
-  {
     "name": "subashjain",
     "tier": "Supporter Pro"
   },
@@ -193,6 +189,10 @@
   },
   {
     "name": "Chris Furber",
+    "tier": "Supporter"
+  },
+  {
+    "name": "ZrenKix",
     "tier": "Supporter"
   },
   {
@@ -421,10 +421,6 @@
   },
   {
     "name": "Ray Walter",
-    "tier": "Supporter"
-  },
-  {
-    "name": "Cocome",
     "tier": "Supporter"
   }
 ]
