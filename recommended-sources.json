@@ -16,7 +16,6 @@
     "https://buildbot.libretro.com/stable/altstore.json",
     "https://buildbot.libretro.com/nightly/apple/ios-arm64/altstore.json",
     "https://raw.githubusercontent.com/claration/Feather/refs/heads/main/app-repo.json",
-    "https://flyinghead.github.io/flycast-builds/altstore.json",
     "https://raw.githubusercontent.com/mateo-m/empo-app/main/altstore-source.json"
   ]
 }
