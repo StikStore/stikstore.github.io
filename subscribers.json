@@ -8,10 +8,6 @@
     "tier": "Supporter Pro"
   },
   {
-    "name": "ayush patel",
-    "tier": "Supporter Pro"
-  },
-  {
     "name": "Transistor",
     "tier": "Supporter Pro"
   },
@@ -280,10 +276,6 @@
     "tier": "Supporter"
   },
   {
-    "name": "Daniel",
-    "tier": "Supporter"
-  },
-  {
     "name": "Jack Brittle",
     "tier": "Supporter"
   },
@@ -341,10 +333,6 @@
   },
   {
     "name": "Zyphs ",
-    "tier": "Supporter"
-  },
-  {
-    "name": "\u308a\u3053 \u7d62\u9999",
     "tier": "Supporter"
   },
   {
@@ -421,6 +409,14 @@
   },
   {
     "name": "Uri",
+    "tier": "Supporter"
+  },
+  {
+    "name": "Cocome",
+    "tier": "Supporter"
+  },
+  {
+    "name": "Kevin",
     "tier": "Supporter"
   }
 ]
