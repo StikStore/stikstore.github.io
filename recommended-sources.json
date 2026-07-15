@@ -7,16 +7,16 @@
     "https://ish.app/altstore.json",
     "https://alt.getutm.app",
     "https://alt.crystall1ne.dev",
-    "https://raw.githubusercontent.com/chachillie/Flycast-iOS/main/flycast-ios.json",
     "https://github.com/LiveContainer/LiveContainer/releases/download/1.0/apps.json",
     "https://github.com/LiveContainer/LiveContainer/releases/download/nightly/apps_nightly.json",
     "https://github.com/minh-ton/reynard-browser/releases/download/0.0.1-a1/source.json",
     "https://raw.githubusercontent.com/MaftyManicEMU/DukeX/master/altsource/source.json",
     "https://ios.armsx2.net/apps.json",
-    "https://ifly-emu.com/api/altstore",
     "https://provenance-emu.com/apps.json",
     "https://buildbot.libretro.com/stable/altstore.json",
     "https://buildbot.libretro.com/nightly/apple/ios-arm64/altstore.json",
-    "https://raw.githubusercontent.com/claration/Feather/refs/heads/main/app-repo.json"
+    "https://raw.githubusercontent.com/claration/Feather/refs/heads/main/app-repo.json",
+    "https://flyinghead.github.io/flycast-builds/altstore.json",
+    "https://raw.githubusercontent.com/mateo-m/empo-app/main/altstore-source.json"
   ]
 }
