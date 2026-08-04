@@ -1,0 +1,22 @@
+{
+  "apps": [
+    {
+      "name": "XeniOS",
+      "repository": "xenios-jp/XeniOS",
+      "platform": "ios",
+      "assetPattern": "\\.ipa$",
+      "bundleIdentifier": "com.xenios.app",
+      "developerName": "XeniOS",
+      "iconURL": "https://stikstore.app/icons/xenios.png"
+    },
+    {
+      "name": "touchHLE",
+      "repository": "johnny901901901/touchHLE-for-iOS",
+      "platform": "ios",
+      "assetPattern": "\\.ipa$",
+      "bundleIdentifier": "org.touchhle.app",
+      "developerName": "touchHLE",
+      "iconURL": "https://stikstore.app/icons/touchhle.png"
+    }
+  ]
+}
