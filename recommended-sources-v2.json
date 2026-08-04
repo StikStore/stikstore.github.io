@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "sources": [
+    {
+      "url": "https://stikdebug.xyz/index.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://apps.manicemu.site/altstore",
+      "platform": "ios"
+    },
+    {
+      "url": "https://altstore.oatmealdome.me/",
+      "platform": "ios"
+    },
+    {
+      "url": "https://ish.app/altstore.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://alt.getutm.app",
+      "platform": "ios"
+    },
+    {
+      "url": "https://alt.crystall1ne.dev",
+      "platform": "ios"
+    },
+    {
+      "url": "https://github.com/LiveContainer/LiveContainer/releases/download/1.0/apps.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://github.com/LiveContainer/LiveContainer/releases/download/nightly/apps_nightly.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://github.com/minh-ton/reynard-browser/releases/download/0.0.1-a1/source.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MaftyManicEMU/DukeX/master/altsource/source.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://ios.armsx2.net/apps.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://provenance-emu.com/apps.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://buildbot.libretro.com/stable/altstore.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://buildbot.libretro.com/nightly/apple/ios-arm64/altstore.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/claration/Feather/refs/heads/main/app-repo.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/mateo-m/empo-app/main/altstore-source.json",
+      "platform": "ios"
+    }
+  ]
+}
