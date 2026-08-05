@@ -64,6 +64,14 @@
     {
       "url": "https://raw.githubusercontent.com/mateo-m/empo-app/main/altstore-source.json",
       "platform": "ios"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/yodaluca23/Fusion-AltStore/refs/heads/main/source.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/yodaluca23/Fusion-AltStore/refs/heads/main/source.json",
+      "platform": "tvos"
     }
   ]
 }
