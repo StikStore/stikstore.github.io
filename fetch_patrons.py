@@ -2,13 +2,10 @@ import os
 import json
 import requests
 import sys
+from urllib.parse import parse_qsl, urlsplit, urlunsplit
 
 ACCESS_TOKEN = os.environ.get("PATREON_ACCESS_TOKEN")
 OUTPUT_FILE = "subscribers.json"
-
-if not ACCESS_TOKEN:
-    print("Error: PATREON_ACCESS_TOKEN is missing.")
-    sys.exit(1)
 
 headers = {
     "Authorization": f"Bearer {ACCESS_TOKEN}",
@@ -17,7 +14,7 @@ headers = {
 
 def get_campaign_id():
     url = "https://www.patreon.com/api/oauth2/v2/identity?include=campaign"
-    r = requests.get(url, headers=headers)
+    r = requests.get(url, headers=headers, timeout=30)
     r.raise_for_status()
     data = r.json()
     if "included" in data:
@@ -37,12 +34,18 @@ def get_all_members_and_tiers(campaign_id):
     }
 
     while url:
-        r = requests.get(url, headers=headers, params=params)
+        # Pagination links may contain only a cursor. Keep the requested fields
+        # on every page, without duplicating parameters already in the next URL.
+        parsed_url = urlsplit(url)
+        page_params = dict(parse_qsl(parsed_url.query, keep_blank_values=True))
+        page_params.update(params)
+        page_url = urlunsplit(parsed_url._replace(query=""))
+        r = requests.get(page_url, headers=headers, params=page_params, timeout=30)
         r.raise_for_status()
         data = r.json()
         
         for member in data.get("data", []):
-            if member["attributes"]["patron_status"] == "active_patron":
+            if (member.get("attributes") or {}).get("patron_status") == "active_patron":
                 members.append(member)
 
         if "included" in data:
@@ -55,11 +58,22 @@ def get_all_members_and_tiers(campaign_id):
                     }
         
         url = data.get("links", {}).get("next")
-        params = {}
 
     return members, tiers
 
+def get_member_name(member):
+    name = (member.get("attributes") or {}).get("full_name")
+    if isinstance(name, str) and name.strip():
+        return name.strip()
+    # Keep eligible memberships in the count without exposing a private
+    # identifier or email address when Patreon omits the public name.
+    return "Anonymous Supporter"
+
 def main():
+    if not ACCESS_TOKEN:
+        print("Error: PATREON_ACCESS_TOKEN is missing.")
+        sys.exit(1)
+
     try:
         print("Fetching Campaign ID...")
         campaign_id = get_campaign_id()
@@ -92,7 +106,7 @@ def main():
                 
                 if highest_tier_owned:
                     temp_list.append({
-                        "name": member["attributes"]["full_name"],
+                        "name": get_member_name(member),
                         "tier": highest_tier_owned['title'],
                         "amount": highest_tier_owned['amount']
                     })
@@ -103,7 +117,7 @@ def main():
 
         print(f"Found {len(final_list)} subscribers. Sorted by most expensive.")
 
-        with open(OUTPUT_FILE, "w") as f:
+        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(final_list, f, indent=2)
             
         print(f"Successfully saved to {OUTPUT_FILE}")
