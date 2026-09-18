@@ -2,6 +2,14 @@
   "version": 2,
   "sources": [
     {
+      "url": "https://playvapor.app/apps.json",
+      "platform": "ios"
+    },
+    {
+      "url": "https://playvapor.app/apps.json",
+      "platform": "tvos"
+    },
+    {
       "url": "https://stikdebug.xyz/index.json",
       "platform": "ios"
     },
