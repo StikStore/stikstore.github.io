@@ -18,6 +18,15 @@
       "platform": "ios",
       "assetPattern": "\\.ipa$",
       "iconURL": "https://raw.githubusercontent.com/johnny901901901/touchHLE-for-iOS/ios-host/platform/ios/Assets.xcassets/AppIcon.appiconset/AppIcon.png"
+    },
+    {
+      "name": "MeloCafe",
+      "developerName": "stossy11",
+      "bundleIdentifier": "com.stossy11.MeloCafe",
+      "repository": "stossy11/MeloCafe",
+      "platform": "ios",
+      "assetPattern": "\\.ipa$",
+      "iconURL": "https://raw.githubusercontent.com/stossy11/MeloCafe/1.0/MeloCafe/MeloCafe/Assets/Assets.xcassets/AppIcon.imageset/AppIcon.png"
     }
   ]
 }
