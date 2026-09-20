@@ -27,6 +27,26 @@
       "platform": "ios",
       "assetPattern": "\\.ipa$",
       "iconURL": "https://raw.githubusercontent.com/stossy11/MeloCafe/1.0/MeloCafe/MeloCafe/Assets/Assets.xcassets/AppIcon.imageset/AppIcon.png"
+    },
+    {
+      "name": "Husk",
+      "developerName": "Leviidev",
+      "bundleIdentifier": "com.husk.app",
+      "repository": "Leviidev/Husk",
+      "platform": "ios",
+      "subtitle": "Android app launcher for iOS.",
+      "assetPattern": "\\.ipa$",
+      "iconURL": "https://raw.githubusercontent.com/Leviidev/Husk/main/src/app/Husk/Assets.xcassets/AppIcon.appiconset/Icon-Default.png"
+    },
+    {
+      "name": "AetherPS4",
+      "developerName": "Leviidev",
+      "bundleIdentifier": "com.aether.ps4ios",
+      "repository": "Leviidev/AetherPS4",
+      "platform": "ios",
+      "subtitle": "PS4 emulator for iOS and iPadOS.",
+      "assetPattern": "\\.ipa$",
+      "iconURL": "https://raw.githubusercontent.com/Leviidev/AetherPS4/main/AetherPS4-iOS/Resources/Assets.xcassets/AppIcon.appiconset/AppIcon-1024.png"
     }
   ]
 }
